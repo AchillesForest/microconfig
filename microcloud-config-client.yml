@@ -4,6 +4,8 @@ spring:
     - dev
     
 ---
+server:
+  port: 8201
 spring:
   profiles: dev
   application:
@@ -13,6 +15,8 @@ eureka:
      serviceUrl:
        defaultZone: http://root:Achilles@eureka-7001.com:7001/eureka
 ---
+server:
+  port: 8202
 spring:
   profiles: beta
   application:
