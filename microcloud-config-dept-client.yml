@@ -1,0 +1,88 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server: 
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://rootdev:Achilles@eureka-7001.com:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: dept-8001.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 访问的路径变为IP地址
+info:
+  app.name: paramount-microcloud
+  company.name: www.paramount.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  type-aliases-package: org.common.vo.dept            # 定义所有操作类的别名所在包
+  mapper-locations:                                     # 所有的mapper映射文件
+  - classpath:mybatis/mapper/**/*.xml
+spring:
+  profiles: dev
+  datasource:
+    url : jdbc:mysql://127.0.0.1:3306/microcloud01
+    username : root
+    password : Achilles
+    driverClassName : com.mysql.jdbc.Driver
+    type : com.alibaba.druid.pool.DruidDataSource
+    filters: stat,wall
+  application:
+    name: microcloud-config-dept-client
+logging:
+    level:
+      tk.mybatis: TRACE    
+mapper:
+  identity: MYSQL
+  mappers: 
+   #- tk.mybatis.mapper.common.Mapper
+   - org.orm.base.mybatis.ICommonMapper
+  not-empty: true
+---
+server: 
+  port: 8001
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://rootbeta:Achilles@eureka-7001.com:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: dept-8001.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 访问的路径变为IP地址
+info:
+  app.name: paramount-microcloud
+  company.name: www.paramount.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  type-aliases-package: org.common.vo.dept             # 定义所有操作类的别名所在包
+  mapper-locations:                                     # 所有的mapper映射文件
+  - classpath:mybatis/mapper/**/*.xml
+spring:
+  profiles: beta
+  datasource:
+    url : jdbc:mysql://127.0.0.1:3306/microcloud01
+    username : root
+    password : Achilles
+    driverClassName : com.mysql.jdbc.Driver
+    type : com.alibaba.druid.pool.DruidDataSource
+    filters: stat,wall
+  application:
+    name: microcloud-config-dept-client
+logging:
+    level:
+      tk.mybatis: TRACE    
+mapper:
+  identity: MYSQL
+  mappers: 
+   #- tk.mybatis.mapper.common.Mapper
+   - org.orm.base.mybatis.ICommonMapper
+  not-empty: true
