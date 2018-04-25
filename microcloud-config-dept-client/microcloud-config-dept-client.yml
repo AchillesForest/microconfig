@@ -29,7 +29,7 @@ spring:
   datasource:
     url : jdbc:mysql://127.0.0.1:3306/microcloud01
     username : root
-    password : Achilles
+    password : '{cipher}a2ec0c80f6dbcb9767164efa91adf9a872a599b2a56da5d8e3a4ce6bf502106f'
     driverClassName : com.mysql.jdbc.Driver
     type : com.alibaba.druid.pool.DruidDataSource
     filters: stat,wall
@@ -71,7 +71,7 @@ spring:
   datasource:
     url : jdbc:mysql://127.0.0.1:3306/microcloud01
     username : root
-    password : Achilles
+    password : '{cipher}a2ec0c80f6dbcb9767164efa91adf9a872a599b2a56da5d8e3a4ce6bf502106f'
     driverClassName : com.mysql.jdbc.Driver
     type : com.alibaba.druid.pool.DruidDataSource
     filters: stat,wall
