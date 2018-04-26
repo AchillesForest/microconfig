@@ -14,9 +14,13 @@ eureka:
    client:
      serviceUrl:
        defaultZone: http://root:Achilles@eureka-7301.com:7301/eureka
+info:
+  app.name: microcloud-config-client-dev-1
+  company.name: www.paramount.com
+  app.version: v-dev-1.0.0
 ---
 server:
-  port: 8202
+  port: 8301
 spring:
   profiles: beta
   application:
@@ -25,3 +29,8 @@ eureka:
    client:
      serviceUrl:
        defaultZone: http://root:Achilles@eureka-7301.com:7301/eureka
+       
+info:
+  app.name: microcloud-config-client-beta-1
+  company.name: www.paramount.com
+  app.version: v-beta-1.0.0
