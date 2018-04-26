@@ -31,6 +31,6 @@ eureka:
        defaultZone: http://root:Achilles@eureka-7301.com:7301/eureka
        
 info:
-  app.name: microcloud-config-client-beta-1-update
-  company.name: www.paramount.com
-  app.version: v-beta-1.0.0-update
+  app.name: microcloud-config-client-beta-2-update2
+  company.name: www.paramount-update2.com
+  app.version: v-beta-2.0.0-update2
